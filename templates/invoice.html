@@ -1,0 +1,15 @@
+{% block content %}
+<form name="Invoice" method="{{ method }}" action="{{ url }}" accept-charset="UTF-8">
+    <input type="hidden" name="ac_account_email" value="{{ params.ac_account_email }}"/>
+    <input type="hidden" name="ac_sci_name" value="{{ params.ac_sci_name }}"/>
+    <input type="hidden" name="ac_amount" value="{{ params.ac_amount }}"/>
+    <input type="hidden" name="ac_currency" value="{{ params.ac_currency }}"/>
+    <input type="hidden" name="ac_order_id" value="{{ params.ac_order_id }}"/>
+    <input type="hidden" name="ac_sub_merchant_url" value="{{ params.ac_sub_merchant_url }}"/>
+    <input type="hidden" name="ac_fail_url" value="{{ params.ac_fail_url }}"/>
+    <input type="hidden" name="ac_ps" value="{{ params.ac_ps }}"/>
+    <input type="hidden" name="ac_sign" value="{{ params.ac_sign }}"/>
+    <input type="hidden" name="ac_success_url" value="{{ params.ac_success_url }}"/>
+    <input type="submit"/>
+</form>
+{% endblock %}
