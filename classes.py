@@ -40,7 +40,6 @@ class Pay:
         }
         self.data = generate_sign(self.request_dict)
         self.data['description'] = self.description
-        print(self.data)
         response = requests.post('https://core.piastrix.com/bill/create', json=self.data)
         response = response.json()
         with open('logs/logs.json', 'a+', encoding='utf-8') as f:

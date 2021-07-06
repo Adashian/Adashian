@@ -1,8 +1,11 @@
-{% block content %}
+{% extends "base.html" %}
+
+{% block body %}
 <form name="Invoice" method="{{ method }}" action="{{ url }}" accept-charset="UTF-8">
     <input type="hidden" name="ac_account_email" value="{{ params.ac_account_email }}"/>
     <input type="hidden" name="ac_sci_name" value="{{ params.ac_sci_name }}"/>
-    <input type="hidden" name="ac_amount" value="{{ params.ac_amount }}"/>
+    <input readonly name="ac_amount" value="{{ params.ac_amount }}"/>
+    <input disabled="disabled" name="currency" value="RUB"/>
     <input type="hidden" name="ac_currency" value="{{ params.ac_currency }}"/>
     <input type="hidden" name="ac_order_id" value="{{ params.ac_order_id }}"/>
     <input type="hidden" name="ac_sub_merchant_url" value="{{ params.ac_sub_merchant_url }}"/>

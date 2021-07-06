@@ -13,6 +13,8 @@
         {{ form.description_field.label }}<br>
         {{ form.description_field(cols="35", rows="5") }}
     </p>
-    <a href="{{ url_for('pay') }}">Home</a>
+    <form>
+        <input type="submit" formtarget="_blank"/>
+    </form>
 </form>
 {% endblock %}
