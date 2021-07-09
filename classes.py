@@ -1,9 +1,10 @@
 from random import randint
 import requests
-import json
-
+from loguru import logger
 from sign import generate_sign
 from config import SHOP_ID, SECRET_KEY, PAYWAY
+
+logger.add("logs/logs.log", format="{time} {level} {message}", level="INFO", rotation="10 MB", compression="zip")
 
 
 class Pay:
@@ -26,8 +27,7 @@ class Pay:
         self.data = generate_sign(self.request_dict)
         self.data['description'] = self.description
         self.data['url'] = 'https://pay.piastrix.com/ru/pay'
-        with open('logs/logs.json', 'a+', encoding='utf-8') as f:
-            json.dump(self.data, f, ensure_ascii=False, indent=4)
+        logger.info(self.data)
         return self.data
 
     def bill(self):
@@ -40,10 +40,10 @@ class Pay:
         }
         self.data = generate_sign(self.request_dict)
         self.data['description'] = self.description
+        logger.info(self.data)
         response = requests.post('https://core.piastrix.com/bill/create', json=self.data)
         response = response.json()
-        with open('logs/logs.json', 'a+', encoding='utf-8') as f:
-            json.dump(response, f, ensure_ascii=False, indent=4)
+        logger.info(response)
         return response['data']['url']
 
     def invoice(self):
@@ -56,9 +56,9 @@ class Pay:
         }
         self.data = generate_sign(self.request_dict)
         self.data['description'] = self.description
+        logger.info(self.data)
         response = requests.post('https://core.piastrix.com/invoice/create',
                                  json=self.data, headers={'Content-Type': 'application/json'})
         response = response.json()
-        with open('logs/logs.json', 'a+', encoding='utf-8') as f:
-            json.dump(response, f, ensure_ascii=False, indent=4)
+        logger.info(response)
         return response['data']

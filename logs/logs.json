@@ -417,4 +417,20 @@
     "error_code": 0,
     "message": "Ok",
     "result": true
+}{
+    "amount": "25.00",
+    "currency": "978",
+    "shop_id": 5,
+    "shop_order_id": 3458,
+    "sign": "f3cbd834259466792ea0519dded1508b9835386d8e8540234e9ff67994673391",
+    "description": "test",
+    "url": "https://pay.piastrix.com/ru/pay"
+}{
+    "amount": "25.00",
+    "currency": "978",
+    "shop_id": 5,
+    "shop_order_id": 2301,
+    "sign": "ee8e87068ff14a30df66b2484a7dedb0b1f1bcda650d5dc563e4d2316c940998",
+    "description": "test",
+    "url": "https://pay.piastrix.com/ru/pay"
 }
