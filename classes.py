@@ -1,14 +1,16 @@
-from random import randint
 import requests
-from loguru import logger
-from sign import generate_sign
-from config import SHOP_ID, SECRET_KEY, PAYWAY
 
-logger.add("logs/logs.log", format="{time} {level} {message}", level="INFO", rotation="10 MB", compression="zip")
+from random import randint
+from loguru import logger
+
+from config import SHOP_ID, SECRET_KEY, PAYWAY
+from sign import generate_sign
+
+logger.add("logs.log", format="{time} {level} {message}", level="INFO", rotation="10 MB", compression="zip")
 
 
 class Pay:
-
+    '''Обработка данных и платежные направления'''
     def __init__(self, amount, currency, description=None):
         self.currency = currency
         self.amount = format(amount, '.2f')
