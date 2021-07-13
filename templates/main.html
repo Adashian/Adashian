@@ -7,7 +7,7 @@
         {{ form.amount.label }}<br></b>
         {{ form.amount(cols="10") }} {{ form.currency() }}
         {% for error in form.amount.errors %}
-    <p><span style="color: red;">[{{ "Укажите сумму" }}]</span></p>
+    <p><span style="color: red;">{{ "Введите сумму. Доступное значение от 0.01 до 9999" }}</span></p>
     {% endfor %}
     <p>
         {{ form.description_field.label }}<br>
